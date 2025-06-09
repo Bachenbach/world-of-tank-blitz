@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoT Blitz RPG - Single Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-menu" class="screen">
+        <h1>World of Tanks Blitz RPG</h1>
+        <button id="btn-new-game">New Game</button>
+        <button id="btn-load-game">Load Game</button>
+        <button id="btn-credits">Credits</button>
+    </div>
+
+    <div id="game-screen" class="screen hidden">
+        <div class="game-ui">
+            <div id="player-info">
+                <span id="player-name">Commander</span>
+                <span id="player-xp">XP: 0</span>
+                <span id="player-credits">Credits: 1000</span>
+            </div>
+            
+            <div class="game-tabs">
+                <button data-tab="garage" class="active">Garage</button>
+                <button data-tab="battle">Battle</button>
+                <button data-tab="research">Research</button>
+            </div>
+        </div>
+
+        <div id="garage-tab" class="game-tab active">
+            <h2>Your Garage</h2>
+            <div id="tank-list" class="tank-list"></div>
+            <div id="selected-tank" class="selected-tank">
+                <div class="tank-details"></div>
+                <button id="btn-select-tank">Select Tank</button>
+            </div>
+        </div>
+
+        <div id="battle-tab" class="game-tab">
+            <h2>Battle Preparation</h2>
+            <div class="battle-options">
+                <div class="difficulty-selector">
+                    <label>AI Difficulty:</label>
+                    <select id="ai-difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <button id="btn-start-battle">Start Battle</button>
+            </div>
+            <div id="battle-result"></div>
+        </div>
+
+        <div id="research-tab" class="game-tab">
+            <h2>Research Tree</h2>
+            <div class="nation-tabs">
+                <button data-nation="usa" class="active">USA</button>
+                <button data-nation="germany">Germany</button>
+                <button data-nation="ussr">USSR</button>
+            </div>
+            <div id="tech-tree" class="tech-tree"></div>
+        </div>
+
+        <canvas id="battle-canvas" class="hidden"></canvas>
+    </div>
+
+    <script src="tanks.js"></script>
+    <script src="ai.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
